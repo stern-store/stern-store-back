@@ -11,16 +11,15 @@ const insertSessionRepository = async (userId: number ,token: string) => {
         [userId, token]));
 };
 
-const deleteSessionsRepository = async (userId: number) => {
-    return( await connection.query(`
-        DELETE FROM sessions WHERE "userId" = $1;`,
-        [userId]));
-};
+const deleteUserSessionsRepository = async (id:number) => {
+    return (await connection.query(`
+    DELETE FROM sessions WHERE "userId"= $1`,[id]));
+}
 
 const signInRepositories = {
     userDataComparateRepository,
     insertSessionRepository,
-    deleteSessionsRepository
+    deleteUserSessionsRepository
 };
 
 export { signInRepositories }

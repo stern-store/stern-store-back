@@ -5,14 +5,16 @@ const userDataComparate = async (email: string) => {
 };
 const insertSession = async (userId: number, token: string) => {
     return await signInRepositories.insertSessionRepository(userId, token);
-}
-const deleteSessions = async (userId:number) => {
-    return await signInRepositories.deleteSessionsRepository(userId)
-}
+};
+
+const deleteUserSessions = async (id: number) => {
+    return await signInRepositories.deleteUserSessionsRepository(id);
+};
+
 const signInServices = {
     userDataComparate,
     insertSession,
-    deleteSessions
+    deleteUserSessions
 };
 
 export { signInServices }

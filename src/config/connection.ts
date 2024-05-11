@@ -3,11 +3,11 @@ import pkg from "pg";
 const { Pool }= pkg;
 
 const connection = new Pool ({
-    host: "localhost",
-    port: 5432,
-    user: "postgres",
-    password: "1234",
-    database: "sternstore"
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
+    user: process.env.POSTGRES_USERNAME,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE
 });
 
-export { connection };
+export { connection };  
